@@ -1,0 +1,102 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prefer-arrow", "import", "prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": [],
+  "rules": {
+    "curly": "error",
+    "eqeqeq": ["error", "smart"],
+    "no-lonely-if": "error",
+    "no-var": "error",
+    "prefer-const": ["error", { "destructuring": "all" }],
+    "arrow-body-style": ["error", "as-needed"],
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "prefer-arrow-callback": "error",
+    "object-shorthand": "error",
+    "no-shadow": ["error", { "builtinGlobals": false }],
+    "spaced-comment": ["error", "always"],
+    "no-nested-ternary": "error",
+    "array-callback-return": ["error", { "allowImplicit": true, "checkForEach": true }],
+    "func-style": ["error", "expression"],
+    "eol-last": ["error", "always"],
+    "no-use-before-define": "off",
+    "newline-before-return": "warn",
+    "sort-imports": ["error", { "ignoreDeclarationSort": true }],
+    "no-undef": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/member-delimiter-style": "warn",
+    "@typescript-eslint/no-duplicate-imports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "import/first": "error",
+    "import/default": "error",
+    "import/prefer-default-export": "warn",
+    "import/no-named-as-default-member": "warn",
+    "import/no-named-default": "error",
+    "import/newline-after-import": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+        "pathGroupsExcludedImportTypes": ["builtin", "type"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/prop-types": "off",
+    "react/display-name": 0,
+    "react/react-in-jsx-scope": 0,
+    "react-hooks/exhaustive-deps": "off",
+    "react/destructuring-assignment": "error",
+    "react/jsx-filename-extension": [2, { "extensions": [".tsx", ".jsx", ".mdx"] }],
+    "react/require-default-props": [0, { "forbidDefaultForRequired": true }],
+    "react/no-unused-prop-types": 1,
+    "react/no-array-index-key": "warn",
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "ignore", "propElementValues": "always" }
+    ],
+    "prefer-arrow/prefer-arrow-functions": ["warn", { "singleReturnOnly": true }]
+  }
+}

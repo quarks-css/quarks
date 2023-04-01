@@ -1,0 +1,46 @@
+{
+  "name": "quarks-css",
+  "description": "A CSS-in-JS library for applying styles to React components via props",
+  "license": "MIT",
+  "version": "0.0.1",
+  "author": {
+    "name": "Daniel Slovinsky & Justin Wallace"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mdx --fix",
+    "format": "prettier --write  --loglevel silent \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
+    "check-types": "tsc --noEmit",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "goober": "^2.1.12"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.31",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "csstype": "^3.1.1",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mdx}": [
+      "eslint --fix",
+      "prettier --write --loglevel silent"
+    ]
+  }
+}

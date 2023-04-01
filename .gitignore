@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+
+# misc
+.DS_Store
+*.pem
+.eslintcache
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*
+
+# typescript
+*.tsbuildinfo
