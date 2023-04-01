@@ -9,8 +9,7 @@
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mdx --fix",
     "format": "prettier --write  --loglevel silent \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
-    "check-types": "tsc --noEmit",
-    "prepare": "husky install"
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "goober": "^2.1.12"
