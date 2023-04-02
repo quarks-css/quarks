@@ -6,10 +6,18 @@
   "author": {
     "name": "Daniel Slovinsky & Justin Wallace"
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mdx --fix",
     "format": "prettier --write  --loglevel silent \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "prepack": "yarn build"
   },
   "dependencies": {
     "goober": "^2.1.12"
@@ -34,6 +42,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
+    "tsup": "^6.7.0",
     "typescript": "^5.0.3"
   },
   "lint-staged": {

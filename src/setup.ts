@@ -8,7 +8,7 @@ import useTheme from './theme';
 const stylePropPrefix = '$';
 export const validateProp = (key: string) => key.startsWith(stylePropPrefix);
 
-const setupGoober = () =>
+const setupQuarks = () =>
   setup(
     createElement,
     prefix,
@@ -16,4 +16,4 @@ const setupGoober = () =>
     shouldForwardProp(prop => !validateProp(prop)),
   );
 
-export default setupGoober;
+export default setupQuarks;
