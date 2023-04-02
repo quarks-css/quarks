@@ -4,18 +4,9 @@ import { customOverwrites } from './theme/customOverwrites';
 import { camelToKebabCase } from './utils/functions';
 import { hasOwnProperty, objectEntries } from './utils/typeUtils';
 
-import type { ThemeValues } from './theme/customOverwrites';
-import type { ExtractFunctionsFromUnion, OverwriteProperties, Prefix, valueof } from './utils/typeUtils';
-import type { Properties } from 'csstype';
-import type { CSSAttribute, DefaultTheme, Tagged, Theme } from 'goober';
-
-type PrefixedProperties = Prefix<Properties, '$'>;
-
-export type StyleProps = OverwriteProperties<PrefixedProperties, ThemeValues>;
-
-export type QuarkProps<T extends keyof JSX.IntrinsicElements> = StyleProps &
-  JSX.LibraryManagedAttributes<T, JSX.IntrinsicElements[T]> &
-  Theme<DefaultTheme>;
+import type { QuarkProps } from './types/quarkProps';
+import type { ExtractFunctionsFromUnion, valueof } from './utils/typeUtils';
+import type { CSSAttribute, Tagged } from 'goober';
 
 type StylingFunction<T extends keyof JSX.IntrinsicElements> = Tagged<QuarkProps<T>>;
 

@@ -8,6 +8,15 @@ export type Prefix<T, Pre extends string> = {
   [P in keyof T & string as `${Pre}${P}`]?: T[P];
 };
 
+export type Replace<
+  T extends string,
+  SearchVal extends string,
+  ReplaceVal extends string,
+  A extends string = '',
+> = T extends `${infer L}${SearchVal}${infer R}`
+  ? Replace<R, SearchVal, ReplaceVal, `${A}${L}${ReplaceVal}`>
+  : `${A}${T}`;
+
 type ObjectEntriesReturn<T> = [keyof T, valueof<T>][];
 type ObjectEntries = <T extends object>(object: T) => ObjectEntriesReturn<T>;
 type ObjectKeys = <T extends object>(object: T) => (keyof T)[];
