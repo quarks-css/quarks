@@ -2,7 +2,7 @@
 
 ## What are quarks?
 
-Quarks are React components, but with all valid CSS properties available as props. They use Goober to inject styles
+Quarks are React components, but with all valid CSS properties available as props. They use [Goober](https://github.com/cristianbote/goober) to inject styles
 either statically or dynamically as needed.
 
 ## Why quarks?
