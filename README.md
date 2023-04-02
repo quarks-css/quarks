@@ -2,13 +2,12 @@
 
 This project is in active development
 
-
 # Quarks
 
 ## What are quarks?
 
-Quarks are React components, but with all valid CSS properties available as props. They use [Goober](https://github.com/cristianbote/goober) to inject styles
-either statically or dynamically as needed.
+Quarks are React components, but with all valid CSS properties available as props. They use
+[Goober](https://github.com/cristianbote/goober) to inject styles either statically or dynamically as needed.
 
 ## Why quarks?
 
@@ -37,3 +36,24 @@ It's a reference to Brad Frost's
 [Atomic Design Methodology](https://bradfrost.com/wp-content/uploads/2022/01/Screen-Shot-2022-01-21-at-9.18.09-AM-1024x575.png).
 If atoms are your smallest design element that make up buttons, icons, text, etc., then what make up atoms? Quarks of
 course!
+
+## **Authors**
+
+<table>
+<tr>
+     <td align="center">
+        <a href="https://github.com/dslovinsky">
+            <img src="https://avatars.githubusercontent.com/u/65476034?v=4" width="100;" alt="dslovinsky"/>
+            <br />
+            <sub><b>Daniel Slovinsky</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/jpwallace22">
+            <img src="https://avatars.githubusercontent.com/u/93415734?v=4" width="100;" alt="jpwallace22"/>
+            <br />
+            <sub><b>Justin Wallace</b></sub>
+        </a>
+    </td>
+<tr>
+</table>
