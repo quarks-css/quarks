@@ -5,31 +5,33 @@ import { camelToKebabCase } from './utils/functions';
 import { hasOwnProperty, objectEntries } from './utils/typeUtils';
 
 import type { ThemeValues } from './theme/customOverwrites';
-import type { ExtractFunctionsFromUnion, OverwriteProperties } from './utils/typeUtils';
+import type { ExtractFunctionsFromUnion, OverwriteProperties, Prefix, valueof } from './utils/typeUtils';
 import type { Properties } from 'csstype';
 import type { CSSAttribute, DefaultTheme, Tagged, Theme } from 'goober';
 
+type PrefixedProperties = Prefix<Properties, '$'>;
 
-type PrefixedProperties<T> = {
-  [P in keyof T & string as `$${P}`]?: T[P];
-};
+export type StyleProps = OverwriteProperties<PrefixedProperties, ThemeValues>;
 
-type StyleProps = OverwriteProperties<PrefixedProperties<Properties>, ThemeValues>;
+export type QuarkProps<T extends keyof JSX.IntrinsicElements, P extends object = Record<string, any>> = StyleProps &
+  JSX.LibraryManagedAttributes<T, JSX.IntrinsicElements[T]> &
+  P &
+  Theme<DefaultTheme>;
 
-type StylingFunction = Tagged<
-  JSX.LibraryManagedAttributes<'div', JSX.IntrinsicElements['div']> & StyleProps & Theme<DefaultTheme>
+type StylingFunction<T extends keyof JSX.IntrinsicElements> = Tagged<QuarkProps<T>>;
+
+type PropsType<T extends keyof JSX.IntrinsicElements> = ExtractFunctionsFromUnion<
+  Parameters<StylingFunction<T>>[number]
 >;
 
-type CallbackArg = ExtractFunctionsFromUnion<Parameters<StylingFunction>[number]>;
-
-const createStylesFromProps = (props: CallbackArg): CSSAttribute =>
+const createStylesFromProps = <T extends keyof JSX.IntrinsicElements>(props: PropsType<T>): CSSAttribute =>
   objectEntries(props).reduce((prevValue, [propertyKey, value]) => {
-    const key = camelToKebabCase(propertyKey.replaceAll('$', ''));
     // checks if prop is for styling
-    if (validateProp(propertyKey)) {
+    if (typeof propertyKey === 'string' && validateProp(propertyKey)) {
+      const key = camelToKebabCase(propertyKey.replaceAll('$', ''));
       // checks if prop is something from customOverwrites
       if (hasOwnProperty(customOverwrites, propertyKey)) {
-        const themeValue = customOverwrites[propertyKey](value);
+        const themeValue = customOverwrites[propertyKey](value as Parameters<valueof<typeof customOverwrites>>[0]);
 
         return {
           ...prevValue,
@@ -51,7 +53,7 @@ const createStylesFromProps = (props: CallbackArg): CSSAttribute =>
 
         return {
           ...prevValue,
-          [`&:${extraColon}${key}`]: createStylesFromProps(value),
+          [`&:${extraColon}${key}`]: createStylesFromProps(value as PropsType<T>),
         };
       }
 

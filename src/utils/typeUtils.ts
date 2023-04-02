@@ -4,6 +4,10 @@ export type OverwriteProperties<T, R> = Omit<T, keyof R> & R;
 
 export type ExtractFunctionsFromUnion<T> = T extends (...args: any) => any ? Parameters<T>[0] : never;
 
+export type Prefix<T, Pre extends string> = {
+  [P in keyof T & string as `${Pre}${P}`]?: T[P];
+};
+
 type ObjectEntriesReturn<T> = [keyof T, valueof<T>][];
 type ObjectEntries = <T extends object>(object: T) => ObjectEntriesReturn<T>;
 type ObjectKeys = <T extends object>(object: T) => (keyof T)[];
