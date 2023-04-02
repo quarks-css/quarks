@@ -13,9 +13,8 @@ type PrefixedProperties = Prefix<Properties, '$'>;
 
 export type StyleProps = OverwriteProperties<PrefixedProperties, ThemeValues>;
 
-export type QuarkProps<T extends keyof JSX.IntrinsicElements, P extends object = Record<string, any>> = StyleProps &
+export type QuarkProps<T extends keyof JSX.IntrinsicElements> = StyleProps &
   JSX.LibraryManagedAttributes<T, JSX.IntrinsicElements[T]> &
-  P &
   Theme<DefaultTheme>;
 
 type StylingFunction<T extends keyof JSX.IntrinsicElements> = Tagged<QuarkProps<T>>;
@@ -43,7 +42,7 @@ const createStylesFromProps = <T extends keyof JSX.IntrinsicElements>(props: Pro
       if (hasOwnProperty(media, propertyKey)) {
         return {
           ...prevValue,
-          [media[propertyKey]]: createStylesFromProps(value),
+          [media[propertyKey]]: createStylesFromProps(value as PropsType<T>),
         };
       }
 
@@ -53,6 +52,7 @@ const createStylesFromProps = <T extends keyof JSX.IntrinsicElements>(props: Pro
 
         return {
           ...prevValue,
+          // @ts-expect-error: "Expression produces a union type that is too complex to represent", TODO: find solution
           [`&:${extraColon}${key}`]: createStylesFromProps(value as PropsType<T>),
         };
       }
