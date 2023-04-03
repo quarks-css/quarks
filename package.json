@@ -2,9 +2,12 @@
   "name": "@quarks-css/quarks",
   "description": "A CSS-in-JS library for applying styles to React components via props",
   "keywords": [
-    "CSS-in-JS",
+    "css-in-js",
+    "css",
     "styled-components",
-    "React"
+    "react",
+    "typescript",
+    "theme"
   ],
   "homepage": "https://github.com/quarks-css/quarks",
   "license": "MIT",
