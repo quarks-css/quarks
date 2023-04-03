@@ -36,7 +36,7 @@ Quarks are React components, but with all valid CSS properties available as prop
 
 - Most CSS-in-JS libraries require each styled element to be declared as a separate React component. That means having
   to come up with (yet another) descriptive name for **every element**. This wastes time and can leads to confusion when
-  elements inevitably have similar or convoluted names. Since each quark is only unique in it's element tag name, it's
+  elements inevitably have similar or convoluted names. Since each quark is only unique in its element tag name, it's
   always clear what each quark represents and there's never a need to spend time trying to uniquely name them.
 
 ## Why "quarks"?
