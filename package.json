@@ -41,6 +41,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mdx --fix",
     "format": "prettier --write  --loglevel silent \"src/**/*.{js,jsx,ts,tsx,mdx}\"",
     "check-types": "tsc --noEmit",
+    "prebuild": "rimraf dist",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "prepack": "yarn build"
   },
@@ -67,6 +68,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
     "tsup": "^6.7.0",
     "typescript": "^5.0.3"
   },
