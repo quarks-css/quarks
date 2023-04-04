@@ -13,6 +13,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Check Types
-        uses: andoshin11/typescript-error-reporter-action@v1.0.2
+        uses: yarn check-types
       - name: Check Build
         run: yarn build
