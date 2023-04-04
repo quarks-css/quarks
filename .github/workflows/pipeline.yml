@@ -13,6 +13,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Check Types
-        uses: yarn check-types
+        run: yarn check-types
       - name: Check Build
         run: yarn build
