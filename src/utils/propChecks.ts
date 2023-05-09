@@ -1,7 +1,6 @@
-import { customOverwrites } from 'src/theme/customOverwrites';
-
 import { prefixedPseudoElements } from '../constants/pseudoElements';
 import media from '../theme/breakpoints';
+import { customOverwrites } from '../theme/customOverwrites';
 
 import type { valueof } from './typeUtils';
 

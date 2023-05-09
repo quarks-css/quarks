@@ -1,4 +1,4 @@
-import flattenObject from 'src/utils/flattenObject';
+import flattenObject from '../utils/flattenObject';
 
 import COLORS from './color';
 

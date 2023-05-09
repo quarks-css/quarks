@@ -1,5 +1,5 @@
+import type { Replace } from '../utils/typeUtils';
 import type { Pseudos } from 'csstype';
-import type { Replace } from 'src/utils/typeUtils';
 
 type FilterPseudoTypes<T extends string, U extends string> = T extends `${U}${string}` ? T : never;
 
