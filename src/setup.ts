@@ -6,7 +6,8 @@ import { createElement } from 'react';
 import useTheme from './theme';
 
 const stylePropPrefix = '$';
-export const validateProp = (key: string) => key.startsWith(stylePropPrefix);
+export const validateProp = (string: string): string is `${typeof stylePropPrefix}${string}` =>
+  typeof string === 'string' && string.startsWith(stylePropPrefix);
 
 const setupQuarks = () =>
   setup(

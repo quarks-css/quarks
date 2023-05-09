@@ -17,44 +17,43 @@ type PropsType<T extends keyof JSX.IntrinsicElements> = ExtractFunctionsFromUnio
 const createStylesFromProps = <T extends keyof JSX.IntrinsicElements>(props: PropsType<T>): CSSAttribute =>
   objectEntries(props).reduce((prevValue, [propertyKey, value]) => {
     // checks if prop is for styling
-    if (typeof propertyKey === 'string' && validateProp(propertyKey)) {
-      const key = camelToKebabCase(propertyKey.replaceAll('$', ''));
-      // checks if prop is something from customOverwrites
-      if (hasOwnProperty(customOverwrites, propertyKey)) {
-        const themeValue = customOverwrites[propertyKey](value as Parameters<valueof<typeof customOverwrites>>[0]);
+    if (typeof propertyKey !== 'string' || !validateProp(propertyKey)) {
+      return prevValue;
+    }
 
-        return {
-          ...prevValue,
-          [key]: themeValue,
-        };
-      }
-
-      // checks if prop is a media query
-      if (hasOwnProperty(media, propertyKey)) {
-        return {
-          ...prevValue,
-          [media[propertyKey]]: createStylesFromProps(value as PropsType<T>),
-        };
-      }
-
-      // checks if prop is pseudo-class or pseudo-element
-      if (typeof value === 'object') {
-        const extraColon = propertyKey.split('$').length > 2 ? ':' : '';
-
-        return {
-          ...prevValue,
-          // @ts-expect-error: "Expression produces a union type that is too complex to represent", TODO: find solution
-          [`&:${extraColon}${key}`]: createStylesFromProps(value as PropsType<T>),
-        };
-      }
+    const key = camelToKebabCase(propertyKey.replaceAll('$', ''));
+    // checks if prop is something from customOverwrites
+    if (hasOwnProperty(customOverwrites, propertyKey)) {
+      const themeValue = customOverwrites[propertyKey](value as Parameters<valueof<typeof customOverwrites>>[0]);
 
       return {
         ...prevValue,
-        [key]: value,
+        [key]: themeValue,
       };
     }
 
-    return prevValue;
+    // checks if prop is a media query
+    if (hasOwnProperty(media, propertyKey)) {
+      return {
+        ...prevValue,
+        [media[propertyKey]]: createStylesFromProps(value as PropsType<T>),
+      };
+    }
+
+    // checks if prop is pseudo-class or pseudo-element
+    if (typeof value === 'object') {
+      const extraColon = propertyKey.split('$').length > 2 ? ':' : '';
+
+      return {
+        ...prevValue,
+        [`&:${extraColon}${key}`]: createStylesFromProps(value as PropsType<T>),
+      };
+    }
+
+    return {
+      ...prevValue,
+      [key]: value,
+    };
   }, {});
 
 export default createStylesFromProps;
