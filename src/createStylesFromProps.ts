@@ -2,21 +2,14 @@ import { validateProp } from './setup';
 import media from './theme/breakpoints';
 import { customOverwrites } from './theme/customOverwrites';
 import { camelToKebabCase } from './utils/functions';
-import { isPseudo, isPseudoElement } from './utils/pseudoUtils';
-import { hasOwnProperty, objectEntries } from './utils/typeUtils';
+import { isCustomOverwrite, isMediaQuery, isPseudo, isPseudoElement } from './utils/propChecks';
+import { objectEntries } from './utils/typeUtils';
 
-import type { QuarkProps } from './types/quarkProps';
-import type { ExtractFunctionsFromUnion, valueof } from './utils/typeUtils';
-import type { CSSAttribute, Tagged } from 'goober';
+import type { CSSAttribute } from 'goober';
 
-type StylingFunction<T extends keyof JSX.IntrinsicElements> = Tagged<QuarkProps<T>>;
-
-export type PropsType<T extends keyof JSX.IntrinsicElements> = ExtractFunctionsFromUnion<
-  Parameters<StylingFunction<T>>[number]
->;
-
-const createStylesFromProps = <T extends keyof JSX.IntrinsicElements>(props: PropsType<T>): CSSAttribute =>
-  objectEntries(props).reduce((prevValue, [propName, value]) => {
+const createStylesFromProps = (props: Record<string, unknown>): CSSAttribute =>
+  objectEntries(props).reduce((prevValue, prop) => {
+    const [propName, value] = prop;
     // checks if prop is for styling
     if (typeof propName !== 'string' || !validateProp(propName)) {
       return prevValue;
@@ -24,8 +17,9 @@ const createStylesFromProps = <T extends keyof JSX.IntrinsicElements>(props: Pro
 
     const key = camelToKebabCase(propName.replace('$', ''));
     // checks if prop is something from customOverwrites
-    if (hasOwnProperty(customOverwrites, propName)) {
-      const themeValue = customOverwrites[propName](value as Parameters<valueof<typeof customOverwrites>>[0]);
+    if (isCustomOverwrite(prop)) {
+      const [overwriteKey, overwriteValue] = prop;
+      const themeValue = customOverwrites[overwriteKey](overwriteValue);
 
       return {
         ...prevValue,
@@ -34,10 +28,12 @@ const createStylesFromProps = <T extends keyof JSX.IntrinsicElements>(props: Pro
     }
 
     // checks if prop is a media query
-    if (hasOwnProperty(media, propName)) {
+    if (isMediaQuery(prop)) {
+      const [mediaKey, mediaValue] = prop;
+
       return {
         ...prevValue,
-        [media[propName]]: createStylesFromProps(value as PropsType<T>),
+        [media[mediaKey]]: createStylesFromProps(mediaValue),
       };
     }
 

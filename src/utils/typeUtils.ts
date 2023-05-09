@@ -2,8 +2,6 @@ export type valueof<T> = T[keyof T];
 
 export type OverwriteProperties<T, R> = Omit<T, keyof R> & R;
 
-export type ExtractFunctionsFromUnion<T> = T extends (...args: any) => any ? Parameters<T>[0] : never;
-
 export type Prefix<T, Pre extends string> = {
   [P in keyof T & string as `${Pre}${P}`]?: T[P];
 };
