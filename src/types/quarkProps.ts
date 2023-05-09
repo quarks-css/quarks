@@ -9,7 +9,7 @@ type PrefixedProperties = Prefix<Properties, '$'>;
 
 type DirectStyleProps = OverwriteProperties<PrefixedProperties, OverwriteValues>;
 
-type StyleProps = DirectStyleProps & {
+export type StyleProps = DirectStyleProps & {
   [P in keyof typeof media]?: StyleProps;
 } & {
   [P in PseudoClassProps]?: StyleProps;

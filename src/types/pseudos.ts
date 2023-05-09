@@ -7,4 +7,4 @@ type PseudoElements = FilterPseudoTypes<Pseudos, '::'>;
 type PseudoClasses = Exclude<Pseudos, PseudoElements>;
 
 export type PseudoClassProps = Replace<PseudoClasses, ':', '$'>;
-export type PseudoElementProps = Replace<PseudoElements, ':', '$'>;
+export type PseudoElementProps = Exclude<Replace<PseudoElements, '::', '$'>, '$slotted' | '$part'>;
