@@ -4,9 +4,12 @@ import { shouldForwardProp } from 'goober/should-forward-prop';
 import { createElement } from 'react';
 
 import PROP_PREFIX from './constants/prefix';
-import useTheme from './theme';
+import getConfig from './getConfig';
 
 import type { StyleProps } from './types/quarkProps';
+
+const config = getConfig();
+console.log(config);
 
 export const validateProp = (string: string): string is keyof StyleProps =>
   typeof string === 'string' && string.startsWith(PROP_PREFIX);
@@ -15,7 +18,7 @@ const setupQuarks = () =>
   setup(
     createElement,
     prefix,
-    useTheme,
+    undefined,
     shouldForwardProp(prop => !validateProp(prop)),
   );
 
