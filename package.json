@@ -32,7 +32,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "github:quarks-css/quarks"
+    "url": "https://github.com/quarks-css/quarks.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
