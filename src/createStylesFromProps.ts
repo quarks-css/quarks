@@ -9,7 +9,6 @@ import type { ExtractFunctionsFromUnion, OverwriteProperties } from './utils/typ
 import type { Properties } from 'csstype';
 import type { CSSAttribute, DefaultTheme, Tagged, Theme } from 'goober';
 
-
 type PrefixedProperties<T> = {
   [P in keyof T & string as `$${P}`]?: T[P];
 };
