@@ -43,7 +43,9 @@
     "check-types": "tsc --noEmit",
     "prebuild": "rimraf dist",
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "prepack": "yarn build"
+    "prepack": "yarn build",
+    "dev": "tsup src/index.ts --format cjs,esm --watch --onSuccess \"yalc push\"",
+    "dev:strict": "yarn build --watch --onSuccess \"yalc push\""
   },
   "dependencies": {
     "goober": "^2.1.12"
@@ -53,6 +55,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
