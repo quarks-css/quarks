@@ -35,7 +35,7 @@ Quarks are React components, but with all valid CSS properties available as prop
 ### 4. Avoid convoluted component names
 
 - Most CSS-in-JS libraries require each styled element to be declared as a separate React component. That means having
-  to come up with (yet another) descriptive name for **every element**. This wastes time and can leads to confusion when
+  to come up with (yet another) descriptive name for **every element**. This wastes time and can lead to confusion when
   elements inevitably have similar or convoluted names. Since each quark is only unique in its element tag name, it's
   always clear what each quark represents and there's never a need to spend time trying to uniquely name them.
 
@@ -48,21 +48,23 @@ course!
 
 ## **Authors**
 
-<table>
-<tr>
-     <td align="center">
-        <a href="https://github.com/dslovinsky">
-            <img src="https://avatars.githubusercontent.com/u/65476034?v=4" width="100;" alt="dslovinsky"/>
-            <br />
-            <sub><b>Daniel Slovinsky</b></sub>
-        </a>
-    </td>
+<div>
+  <table>
+  <tr>
     <td align="center">
+      <a href="https://github.com/dslovinsky">
+        <img src="https://avatars.githubusercontent.com/u/65476034?v=4" width="100;" alt="dslovinsky"/>
+        <br />
+        <sub><b>Daniel Slovinsky</b></sub>
+      </a>
+      </td>
+      <td align="center">
         <a href="https://github.com/jpwallace22">
-            <img src="https://avatars.githubusercontent.com/u/93415734?v=4" width="100;" alt="jpwallace22"/>
-            <br />
-            <sub><b>Justin Wallace</b></sub>
+          <img src="https://avatars.githubusercontent.com/u/93415734?v=4" width="100;" alt="jpwallace22"/>
+          <br />
+          <sub><b>Justin Wallace</b></sub>
         </a>
-    </td>
-<tr>
-</table>
+      </td>
+    <tr>
+  </table>
+</div>
