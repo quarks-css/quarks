@@ -69,6 +69,7 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "rimraf": "^5.0.0",
+    "semantic-release": "^21.0.2",
     "tsup": "^6.7.0",
     "typescript": "^5.0.3"
   },
@@ -76,6 +77,16 @@
     "*.{js,jsx,ts,tsx,mdx}": [
       "eslint --fix",
       "prettier --write --loglevel silent"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
     ]
   }
 }
