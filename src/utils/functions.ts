@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs';
-
 export const stringToKebabCase = (id: string) =>
   id
     .toLowerCase()
@@ -23,9 +21,3 @@ export const camelToKebabCase = <T extends string>(string: T) =>
     T,
     string
   >;
-
-export const readFromFile = <T extends any[]>(filepath: string): T => {
-  const readerBuffer = readFileSync(filepath);
-
-  return JSON.parse(readerBuffer.toString());
-};
