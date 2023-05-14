@@ -47,8 +47,6 @@
     "dev": "yarn build --watch --onSuccess \"yalc push\""
   },
   "dependencies": {
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.7",
     "goober": "^2.1.12"
   },
   "peerDependencies": {
@@ -57,6 +55,8 @@
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.7",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
@@ -84,6 +84,19 @@
     ]
   },
   "release": {
+    "branches": [
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
