@@ -47,6 +47,8 @@
     "dev": "yarn build --watch --onSuccess \"yalc push\""
   },
   "dependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.7",
     "goober": "^2.1.12"
   },
   "peerDependencies": {
