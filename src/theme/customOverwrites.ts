@@ -1,4 +1,4 @@
-import flattenObject from 'src/utils/flattenObject';
+import flattenObject from '../utils/flattenObject';
 
 import COLORS from './color';
 
@@ -9,7 +9,7 @@ export const customOverwrites = {
   $color: (value: keyof typeof flattenedColors) => flattenedColors[value],
 };
 
-type GetThemeValues<T> = {
+type GetOverwriteValues<T> = {
   [P in keyof T]?: T[P] extends (...args: any) => string ? Parameters<T[P]>[0] : never;
 };
-export type ThemeValues = GetThemeValues<typeof customOverwrites>;
+export type OverwriteValues = GetOverwriteValues<typeof customOverwrites>;

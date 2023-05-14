@@ -25,7 +25,7 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": [],
+  "ignorePatterns": ["dist"],
   "rules": {
     "curly": "error",
     "eqeqeq": ["error", "smart"],

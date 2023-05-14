@@ -8,7 +8,7 @@ dist
 .DS_Store
 *.pem
 .eslintcache
-.vscode
+.vscode*
 
 # debug
 npm-debug.log*
