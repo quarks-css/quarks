@@ -15,6 +15,9 @@
   "author": {
     "name": "Daniel Slovinsky & Justin Wallace"
   },
+  "browser": {
+    "fs": false
+  },
   "contributors": [
     {
       "name": "Daniel Slovinsky",
@@ -46,13 +49,17 @@
     "prepack": "yarn build"
   },
   "dependencies": {
-    "goober": "^2.1.12"
+    "findup-sync": "^5.0.0",
+    "goober": "^2.1.12",
+    "ts-node": "^10.9.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/findup-sync": "^4.0.2",
+    "@types/node": "^20.1.4",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
