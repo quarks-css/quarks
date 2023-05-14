@@ -1,3 +1,4 @@
+import PROP_PREFIX from './constants/prefix';
 import { validateProp } from './setup';
 import media from './theme/breakpoints';
 import { customOverwrites } from './theme/customOverwrites';
@@ -15,7 +16,7 @@ const createStylesFromProps = (props: Record<string, unknown>): CSSAttribute =>
       return prevValue;
     }
 
-    const key = camelToKebabCase(propName.replace('$', ''));
+    const key = camelToKebabCase(propName.replace(PROP_PREFIX, ''));
     // checks if prop is something from customOverwrites
     if (isCustomOverwrite(prop)) {
       const [overwriteKey, overwriteValue] = prop;

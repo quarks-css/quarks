@@ -4,7 +4,7 @@ import createStylesFromProps from './createStylesFromProps';
 
 import type { QuarkProps } from './types/quarkProps';
 
-// TODO: Solve "Index signature for type 'string' is missing in type" from SVGProps
+// TODO: Remove type assertion on `props` by solving "Index signature for type 'string' is missing in type" from SVGProps
 const quark = <T extends keyof JSX.IntrinsicElements>(tag: T) =>
   styled<QuarkProps<T>>(tag)(props => createStylesFromProps(props as Record<string, unknown>));
 

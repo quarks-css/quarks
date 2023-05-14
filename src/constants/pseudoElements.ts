@@ -1,3 +1,4 @@
+import PROP_PREFIX from './prefix';
 // part and slotted not currently supported by quarks
 const PSEUDO_ELEMENTS = [
   // '::part()',
@@ -47,6 +48,6 @@ const PSEUDO_ELEMENTS = [
   '::-webkit-slider-thumb',
 ];
 
-export const prefixedPseudoElements = PSEUDO_ELEMENTS.map(pseudoEle => pseudoEle.replace('::', '$'));
+export const prefixedPseudoElements = PSEUDO_ELEMENTS.map(pseudoEle => pseudoEle.replace('::', PROP_PREFIX));
 
 export default PSEUDO_ELEMENTS;
