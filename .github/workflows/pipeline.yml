@@ -79,7 +79,7 @@ jobs:
         id: 'release'
         uses: codfish/semantic-release-action@v2.2.0
         env:
-          GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }} # expires 13May24
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # expires 13May24
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # expires 13May24
 
   gen-contributors:
