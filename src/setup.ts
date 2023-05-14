@@ -3,13 +3,13 @@ import { prefix } from 'goober/prefixer';
 import { shouldForwardProp } from 'goober/should-forward-prop';
 import { createElement } from 'react';
 
+import PROP_PREFIX from './constants/prefix';
 import useTheme from './theme';
 
 import type { StyleProps } from './types/quarkProps';
 
-const stylePropPrefix = '$';
 export const validateProp = (string: string): string is keyof StyleProps =>
-  typeof string === 'string' && string.startsWith(stylePropPrefix);
+  typeof string === 'string' && string.startsWith(PROP_PREFIX);
 
 const setupQuarks = () =>
   setup(
