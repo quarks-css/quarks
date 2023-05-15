@@ -1,10 +1,66 @@
+<image src="https://img.shields.io/npm/l/@quarks-css/quarks" />
+<image src="https://img.shields.io/github/package-json/v/quarks-css/quarks" />
+<image src="https://img.shields.io/bundlephobia/min/@quarks-css/quarks" />
+<image src="https://img.shields.io/github/languages/top/quarks-css/quarks" />
+
+<br />
+
 # WIP
 
 This project is in active development
 
 # Quarks
 
-<image src="https://raw.githubusercontent.com/quarks-css/quarks/main/src/assets/quarks-logo.png" width="80px">
+<image src="https://raw.githubusercontent.com/quarks-css/quarks/main/src/assets/quarks-logo.png" width="80px" />
+
+## Installation
+
+```shell
+# yarn
+yarn add @quarks-css/quarks
+
+# npm
+npm install @quarks-css/quarks
+```
+
+## Getting Started
+
+### Setup
+
+A setup call with the provided `setup` function needs to be made on the entry file of your project.
+
+```tsx
+import { setup } from '@quarks-css/quarks';
+
+const MyApp: AppType = ({ Component, pageProps }) => {
+  setup();
+
+  // ... rest of app
+};
+```
+
+### Usage
+
+Import `quark` from `@quarks-css/quarks` and pass it any valid HTML element string to create a quark!
+
+```tsx
+import quark from '@quarks-css/quarks';
+
+const Div = quark('div');
+const H1 = quark('h1');
+
+export default function Home() {
+  return (
+    <main>
+      <Div $backgroundColor="primary-900" $color="common-white" $padding="16px 24px" $borderRadius="8px">
+        <H1 $textAlign="center" $fontSize="32px">
+          My first Quark!
+        </H1>
+      </Div>
+    </main>
+  );
+}
+```
 
 ## What are quarks?
 
@@ -46,25 +102,7 @@ It's a reference to Brad Frost's
 If atoms are your smallest design element that make up buttons, icons, text, etc., then what make up atoms? Quarks of
 course!
 
-## **Authors**
+## Contributors
 
-<div>
-  <table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/dslovinsky">
-        <img src="https://avatars.githubusercontent.com/u/65476034?v=4" width="100;" alt="dslovinsky"/>
-        <br />
-        <sub><b>Daniel Slovinsky</b></sub>
-      </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/jpwallace22">
-          <img src="https://avatars.githubusercontent.com/u/93415734?v=4" width="100;" alt="jpwallace22"/>
-          <br />
-          <sub><b>Justin Wallace</b></sub>
-        </a>
-      </td>
-    <tr>
-  </table>
-</div>
+<!-- readme: <dslovinsky>,<jpwallace22>, contributors/- -start -->
+<!-- readme: <dslovinsky>,<jpwallace22>, contributors/- -end -->
