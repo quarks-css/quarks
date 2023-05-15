@@ -104,5 +104,5 @@ course!
 
 ## Contributors
 
-<!-- readme: <dslovinsky>,<jpwallace22>, contributors/- -start -->
-<!-- readme: <dslovinsky>,<jpwallace22>, contributors/- -end -->
+<!-- readme: <dslovinsky>,<jpwallace22>,contributors/- -start -->
+<!-- readme: <dslovinsky>,<jpwallace22>,contributors/- -end -->
