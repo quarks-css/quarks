@@ -62,6 +62,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - uses: actions/setup-node@v3
         with:
@@ -79,7 +80,8 @@ jobs:
         id: 'release'
         uses: codfish/semantic-release-action@v2.2.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # expires 13May24
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # expires 13May24
 
   gen-contributors:
