@@ -2,5 +2,10 @@ version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
+    target-branch: 'next'
+    commit-message:
+      include: scope
+      prefix: build
+      prefix-development: chore
     schedule:
       interval: 'weekly'
