@@ -1,7 +1,7 @@
-<image src="https://img.shields.io/npm/l/@quarks-css/quarks" />
-<image src="https://img.shields.io/github/package-json/v/quarks-css/quarks" />
-<image src="https://img.shields.io/bundlephobia/min/@quarks-css/quarks" />
-<image src="https://img.shields.io/github/languages/top/quarks-css/quarks" />
+[![License](https://img.shields.io/npm/l/@quarks-css/quarks)](https://opensource.org/license/mit/)
+[![Version](https://img.shields.io/github/package-json/v/quarks-css/quarks)](https://www.npmjs.com/package/@quarks-css/quarks)
+[![Minified Size](https://img.shields.io/bundlephobia/min/@quarks-css/quarks)](https://www.npmjs.com/package/@quarks-css/quarks)
+[![Primary Language](https://img.shields.io/github/languages/top/quarks-css/quarks)](https://www.npmjs.com/package/@quarks-css/quarks)
 
 <br />
 
@@ -104,5 +104,5 @@ course!
 
 ## Contributors
 
-<!-- readme: <dslovinsky>,<jpwallace22>,contributors/- -start -->
-<!-- readme: <dslovinsky>,<jpwallace22>,contributors/- -end -->
+<!-- readme: dslovinsky,jpwallace22,contributors/- -start -->
+<!-- readme: dslovinsky,jpwallace22,contributors/- -end -->
