@@ -11,7 +11,7 @@
   ],
   "homepage": "https://github.com/quarks-css/quarks",
   "license": "MIT",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "author": {
     "name": "Daniel Slovinsky & Justin Wallace"
   },
@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "github:quarks-css/quarks"
+    "url": "https://github.com/quarks-css/quarks.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -43,7 +43,8 @@
     "check-types": "tsc --noEmit",
     "prebuild": "rimraf dist",
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "prepack": "yarn build"
+    "prepack": "yarn build",
+    "dev": "yarn build --watch --onSuccess \"yalc push\""
   },
   "dependencies": {
     "goober": "^2.1.12"
@@ -53,6 +54,9 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.7",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
@@ -80,6 +84,19 @@
     ]
   },
   "release": {
+    "branches": [
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
