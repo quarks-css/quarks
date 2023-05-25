@@ -105,4 +105,28 @@ course!
 ## Contributors
 
 <!-- readme: dslovinsky,jpwallace22,contributors/- -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/dslovinsky">
+            <img src="https://avatars.githubusercontent.com/u/65476034?v=4" width="100;" alt="dslovinsky"/>
+            <br />
+            <sub><b>Daniel Slovinsky</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/jpwallace22">
+            <img src="https://avatars.githubusercontent.com/u/93415734?v=4" width="100;" alt="jpwallace22"/>
+            <br />
+            <sub><b>Justin Wallace</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/semantic-release-bot">
+            <img src="https://avatars.githubusercontent.com/u/32174276?v=4" width="100;" alt="semantic-release-bot"/>
+            <br />
+            <sub><b>Semantic Release Bot</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: dslovinsky,jpwallace22,contributors/- -end -->
